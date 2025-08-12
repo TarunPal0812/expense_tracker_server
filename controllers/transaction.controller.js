@@ -81,32 +81,33 @@ const deleteTransactions = async (req, res) => {
   }
 };
 
-const getSummary = async (req,res) => {
-     try {
-       const { userId } = req.params;
+const getSummary = async (req, res) => {
+  try {
+    const { userId } = req.params;
 
-       const balanceResult =
-         await sql`SELECT COALESCE(SUM(amount),0) AS balance FROM transactions WHERE user_id = ${userId}`;
+    const balanceResult =
+      await sql`SELECT COALESCE(SUM(amount),0) AS balance FROM transactions WHERE user_id = ${userId}`;
 
-         const incomeResult =
-           await sql`SELECT COALESCE(SUM(amount),0) AS income FROM transactions WHERE user_id = ${userId} AND amount > 0`;
-        
-        const expansesResult =
-             await sql`SELECT COALESCE(SUM(amount),0) AS expenses FROM transactions WHERE user_id = ${userId} AND amount < 0`;
+    const incomeResult =
+      await sql`SELECT COALESCE(SUM(amount),0) AS income FROM transactions WHERE user_id = ${userId} AND amount > 0`;
 
-       res.status(200).json({
-         success: true,
-         balance: balanceResult[0].balance,
-         income: incomeResult[0].income,
-         expanse: expansesResult[0].expenses,
-       });
-     } catch (error) {
-       console.log(error.message);
-       res.status(500).json({
-         success: false,
-         message: "Something went wrong",
-       });
-     }
-}
+    const expensesResult =
+      await sql`SELECT COALESCE(SUM(amount),0) AS expenses FROM transactions WHERE user_id = ${userId} AND amount < 0`;
+
+    res.status(200).json({
+      success: true,
+      balance: balanceResult[0].balance,
+      income: incomeResult[0].income,
+      expenses: expensesResult[0].expenses, 
+    });
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json({
+      success: false,
+      message: "Something went wrong",
+    });
+  }
+};
+
 
 export { createTransaction, getAllTransaction, deleteTransactions, getSummary };
