@@ -2,63 +2,61 @@
 
 ---
 
-```markdown
 # 💰 Expense Tracker API
 
-A **Node.js + Express** backend for managing transactions with **PostgreSQL (Neon)**, **Upstash Redis rate limiting**, and **CORS** support.  
+A **Node.js + Express** backend for managing transactions with **PostgreSQL (Neon)**, **Upstash Redis rate limiting**, and **CORS** support.
 This API powers an expense tracker application with user-specific transaction storage and retrieval.
 
 ---
 
 ## 🚀 Features
 
-- **User-specific transactions**: Create, read, and delete transactions by user.
-- **PostgreSQL database** with Neon serverless.
-- **Rate limiting** with Upstash Redis.
-- **RESTful API endpoints**.
-- **CORS enabled** for cross-origin requests.
-- **Environment configuration** with `dotenv`.
+* **User-specific transactions**: Create, read, and delete transactions by user.
+* **PostgreSQL database** with Neon serverless.
+* **Rate limiting** with Upstash Redis.
+* **RESTful API endpoints**.
+* **CORS enabled** for cross-origin requests.
+* **Environment configuration** with `dotenv`.
 
 ---
 
 ## 📂 Project Structure
 
 ```
-
 ├── config/
-│   ├── db.config.js         # Database connection and initialization
-│   ├── upstash.config.js    # Upstash Redis configuration
+│   ├── db.config.js               # Database connection and initialization
+│   ├── upstash.config.js          # Upstash Redis configuration
 ├── controllers/
 │   └── transaction.controller.js  # Business logic for transactions
 ├── middlewares/
 │   └── rateLimiter.middlewares.js # Rate limiting middleware
 ├── routes/
 │   └── transaction.routes.js      # Transaction routes
-├── .env.example              # Example environment variables
+├── .env.example                   # Example environment variables
 ├── package.json
-├── server.js (index file)
-
-````
+├── server.js                      # Entry point
+```
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Node.js** + **Express.js**
-- **PostgreSQL** (Neon serverless)
-- **Upstash Redis** (Rate limiting)
-- **dotenv**
-- **CORS**
+* **Node.js** + **Express.js**
+* **PostgreSQL** (Neon serverless)
+* **Upstash Redis** (Rate limiting)
+* **dotenv**
+* **CORS**
 
 ---
 
 ## ⚙️ Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/TarunPal0812/expense-tracker-server.git
-   cd expense-tracker-api
-````
+   cd expense-tracker-server
+   ```
 
 2. **Install dependencies**
 
@@ -84,7 +82,7 @@ This API powers an expense tracker application with user-specific transaction st
    The API will run on:
 
    ```
-   http://localhost:8080
+   http://localhost:5000
    ```
 
 ---
@@ -94,7 +92,7 @@ This API powers an expense tracker application with user-specific transaction st
 Base URL:
 
 ```
-http://localhost:8080/api/v1
+http://localhost:5000/api/v1
 ```
 
 | Method   | Endpoint               | Description                   | Body Params                              |
@@ -162,7 +160,6 @@ You can deploy this backend to:
 * **Render**
 * **Vercel** (Serverless functions)
 
-
 Make sure your database and Upstash Redis credentials are set in your deployment environment variables.
 
 ---
@@ -175,9 +172,8 @@ This project is licensed under the **MIT License**.
 
 ## ✨ Author
 
-**Your Name**
-GitHub: [@TaunPal0812](https://github.com/TarunPal0812)
+**Tarun Pal**
+GitHub: [@TarunPal0812](https://github.com/TarunPal0812)
 
-```
-
+---
 
